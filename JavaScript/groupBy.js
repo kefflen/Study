@@ -21,16 +21,16 @@ function groupedBy(prop) {
 }
 let a=1, b=2, c=3
 let objs = [
-    {type: a, preco: 10},
-    {type: a, preco: 20},
-    {type: c, preco: 30},
-    {type: b, preco: 40},
-    {type: b, preco: 50},
-    {type: c, preco: 60},
-    {type: a, preco: 70},
-    {type: b, preco: 80},
-    {type: a, preco: 90},
-    {type: b, preco: 100}
+    {country: "Brazil", type: a, preco: 10},
+    {country: "Brazil", type: a, preco: 20},
+    {country: "Brazil", type: c, preco: 30},
+    {country: "Brazil", type: b, preco: 40},
+    {country: "Brazil", type: b, preco: 50},
+    {country: "Usa", type: c, preco: 60},
+    {country: "Usa", type: a, preco: 70},
+    {country: "Usa", type: b, preco: 80},
+    {country: "Usa", type: a, preco: 90},
+    {country: "Usa", type: b, preco: 100}
 ]
 grouper = groupedBy("type")
 console.log(grouper(objs))

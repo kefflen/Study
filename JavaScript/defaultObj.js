@@ -57,3 +57,4 @@ console.log(products)
 for (let product of products) {
     console.log(product)
 }
+module.exports = DefaultObj

@@ -1,4 +1,5 @@
 const defaultObj = require("./lib/defaultObj")
+const Grouper = require("./lib/Grouper")
 //Criar uma função que retorna um obj que faz subgrupos levando em consideração dois atributos
 function groupBy(types) {
     let obj = defaultObj(Array)
@@ -19,10 +20,12 @@ function groupBy(types) {
     }
     return inner
 }
+
 //talvez precise de uma nova função de default obj
 //Retorna um função com sub grupos de ordenação
-function SubGroups() {
-
+function SubGroups(types) {
+    let obj = defaultObj(Array)
+    
 }
 
 

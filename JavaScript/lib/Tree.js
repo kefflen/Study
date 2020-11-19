@@ -19,7 +19,11 @@ class Cell{
             this.insert(value)
         }
     }
-
+    *iterReverse() {
+        if (this.right) yield* this.right
+        yield this.value
+        if (this.left) yield* this.left
+    }
     *_iter () {
         if (this.left) yield* this.left
         yield this.value

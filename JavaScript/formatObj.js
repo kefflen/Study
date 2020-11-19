@@ -8,10 +8,10 @@ function PutOnSpace(text, spaces) {
     return text
 }
 
-function TableView(obj, propsConfig) {
+function TableView(obj, format_specs) {
     let text = ""
-    for (let propConfig of propsConfig.split(",")) {
-        let [prop, spaces] = propConfig.split(".")
+    for (let format_spec of format_specs.split(",")) {
+        let [prop, spaces] = format_spec.split(".")
         let value = String(obj[prop.trim()])
         if (spaces) {
             if (spaces.endsWith("b")) {
@@ -58,6 +58,7 @@ console.log(PutOnSpace("Product", 20) + PutOnSpace("price", 6) + "stock; type\n"
 for (let product of products) {
     console.log(TableView(product, "product.20b, price.6b, stock.2s, type"))
 }
+
 /* Output:
 Product             price stock; type
 -----------------------------------
@@ -65,4 +66,3 @@ Apple               5     100  Fruit
 Smartphone          1200  50  Electronic
 Detergent           16    1000  Health
 */
-

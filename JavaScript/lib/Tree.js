@@ -1,4 +1,4 @@
-module.exports = Cell
+
 
 class Cell{
     constructor(value) {
@@ -8,7 +8,7 @@ class Cell{
         if (value < this.value) {
             if (this.left) this.left.insert(value)
             else this.left = new Cell(value)
-        } else {
+        } else if (value > this.value) {
             if (this.right) this.right.insert(value)
             else this.right = new Cell(value)
         }
@@ -20,9 +20,9 @@ class Cell{
         }
     }
     *iterReverse() {
-        if (this.right) yield* this.right
+        if (this.right) yield* this.right.iterReverse()
         yield this.value
-        if (this.left) yield* this.left
+        if (this.left) yield* this.left.iterReverse()
     }
     *_iter () {
         if (this.left) yield* this.left
@@ -44,6 +44,7 @@ class Cell{
         return main
     }
 }
+module.exports = {Cell}
 /*
 main = new Cell(10)
 main.insert(5)

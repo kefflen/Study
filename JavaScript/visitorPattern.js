@@ -1,0 +1,5 @@
+const { Cell } = require("./lib/Tree")
+let x = Cell.treeFrom([6,2,4,3,7,9,5])
+console.log(Array.from(x))
+reversed = Array.from(x.iterReverse())
+console.log(reversed)

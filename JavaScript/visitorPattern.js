@@ -67,15 +67,12 @@ class Visitor {
 }
 
 
-    
-
-
 
 let v = new Visitor()
 let value = v.visit(x)
-console.log(value)
+console.log(value) // output: 36
 let res = new Add(new Number(40), new Number(20)) // 40 + 20 =  60
 res = new Sub(new Number(10), res) // 10 - 60 = -50
 calculator = new Evaluate()
 result = calculator.visit(res)
-console.log({result})
+console.log({result}) // output: { result: -50 }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="entry" id="entry" master>
+    <select name="chooseFont" id="ChooseFont" func="onchange:ChooseFont" sub disabled>
+        <option value="Arial">Arial</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="cursive">cursive</option>
+    </select>
+    <button sub disabled>Teste</button>
+</body>
+</html>
+<script>
+    let master = document.querySelector("[master]")
+    let btn = document.querySelector("button")
+    let subs = document.querySelectorAll("[sub]")
+    class Mediator {
+        constructor(master, subs) {
+            this.master = master
+            this.subs = subs
+            master.addEventListener("input", this.changed)
+            for (let widget of this.subs) {
+                if (widget.attributes["func"]) {
+                    let [event, func] = widget.attributes["func"].value.split(":")
+                    widget[event] = this[func]
+                }
+            }
+        }
+         // Should be arrow function because I want to use this scope where is 'this'
+        changed = (e) => {
+            if (!!e.target.value != this.state) {
+                this.state = !this.state
+                subs.forEach(widget => {
+                    widget.toggleAttribute("disabled")
+                })
+            }
+        }
+        ChooseFont = (e) => {
+            this.master.style.fontFamily = e.target.value
+        }
+    }
+    let mediator = new Mediator(master, subs)
+</script>

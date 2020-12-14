@@ -2,9 +2,11 @@
 
 class Cell{
     constructor(value) {
+        this.len = 0
         this.value = value
     }
     insert(value) {
+        this.len += 1
         if (value < this.value) {
             if (this.left) this.left.insert(value)
             else this.left = new Cell(value)
